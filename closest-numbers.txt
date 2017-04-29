@@ -1,0 +1,44 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10        int N;
+11        vector <int> numbers;
+12        vector <pair<int, int>> pairs;
+13
+14        cin >> N;
+15
+16▾       for (int i = 0; i < N; i++) {
+17             int tmp;
+18             cin >> tmp;
+19             numbers.push_back(tmp);
+20     }
+21
+22        sort(numbers.begin(), numbers.end());
+23
+24        int min_distance = abs(numbers[0] - numbers[1]);
+25        pairs.push_back(make_pair(numbers[0], numbers[1]));
+26
+27▾       for (int i = 1; i < N - 1; i++) {
+28             int dist = abs(numbers[i] - numbers[i+1]);
+29▾            if (dist == min_distance) {
+30                  pairs.push_back(make_pair(numbers[i], numbers[i+1]));           
+31▾        } else if (min_distance > dist) {
+32                  pairs.clear();
+33                  min_distance = dist;
+34                  pairs.push_back(make_pair(numbers[i], numbers[i+1]));           
+35         }
+36     }
+37
+38▾       for (int i = 0; i < pairs.size(); i++) {
+39             cout << pairs[i].first << " " << pairs[i].second << " ";
+40     }
+41        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+42        return 0;
+43 }
+44

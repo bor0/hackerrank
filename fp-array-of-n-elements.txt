@@ -1,0 +1,12 @@
+1 #lang racket
+2
+3 (define (f n)
+4     (
+5      if (= n 0) '() (cons n (f (- n 1)))
+6      )
+7     )
+8
+9 (define n (string->number (read-line (current-input-port) 'any)))
+10 (print (list(f n)))
+11
+12

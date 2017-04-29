@@ -1,0 +1,21 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (shift-string str)
+5     (let ([strl (- (string-length str) 1)])
+6       (string-append (make-string 1 (string-ref str strl)) (substring str 0 strl))))
+7
+8 (define (rotations2 str start)
+9     (cond ((= start (- (string-length str) 1)) "")
+10             (else (string-append (shift-string str) " " (rotations2 (shift-string str) (+ start 1))))))
+11
+12 (define (rotations str) (string-trim (string-append (string-join (reverse (string-split (rotations2 str 0) " ")) " ") "
+" str)))
+13
+14 (define (go n)
+15      (if (= n 1) (displayln (rotations (read-line)))
+16           (begin
+17             (displayln (rotations (read-line)))
+18             (go (- n 1)))))
+19
+20 (go (string->number (read-line)))

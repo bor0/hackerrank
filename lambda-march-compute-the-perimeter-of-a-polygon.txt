@@ -1,0 +1,22 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (polygon-perimeter-iter points n sum)
+5     (cond ((= n (length points)) sum)
+6            (else (polygon-perimeter-iter
+7                     points
+8                     (+ n 1)
+9                     (+ sum (sqrt
+10                                (+
+11                                 (sqr (- (car (list-ref points (remainder (+ n 1) (length points))))
+12                                           (car (list-ref points n))))
+13                                 (sqr (- (cdr (list-ref points (remainder (+ n 1) (length points))))
+14                                           (cdr (list-ref points n)))))))))))
+15
+16 (define (polygon-perimeter points) (polygon-perimeter-iter points 0 0))
+17
+18 (define (read-points n)
+19      (cond ((= n 0) '())
+20             (else (cons (cons (read) (read)) (read-points (- n 1))))))
+21
+22 (displayln (polygon-perimeter (read-points (read))))

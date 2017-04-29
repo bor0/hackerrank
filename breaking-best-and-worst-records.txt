@@ -1,0 +1,45 @@
+1 #include <bits/stdc++.h>
+2
+3 using namespace std;
+4
+5▾vector < int > getRecord(vector < int > s) {
+6       // Complete this function
+7       vector<int> tmp;
+8       int max, min;
+9       int recordMax = 0, recordMin = 0;
+10        min = max = s[0];
+11
+12▾       for (int i = 0; i < s.size(); i++) {
+13▾            if (s[i] > max) {
+14                  max = s[i];
+15                  recordMax++;
+16         }
+17▾            if (s[i] < min) {
+18                  min = s[i];
+19                  recordMin++;
+20         }
+21     }
+22
+23        tmp.push_back(recordMax);
+24        tmp.push_back(recordMin);
+25
+26        return tmp;
+27 }
+28
+29▾int main() {
+30        int n;
+31        cin >> n;
+32        vector<int> s(n);
+33▾       for(int s_i = 0; s_i < n; s_i++){
+34            cin >> s[s_i];
+35     }
+36        vector < int > result = getRecord(s);
+37        string separator = "", delimiter = " ";
+38▾       for(auto val: result) {
+39             cout<<separator<<val;
+40             separator = delimiter;
+41     }
+42        cout<<endl;
+43        return 0;
+44 }
+45

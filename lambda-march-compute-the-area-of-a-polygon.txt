@@ -1,0 +1,19 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (polygon-area-iter points n sum)
+5     (cond ((= n (length points)) (abs (if (= (remainder sum 2) 0) (/ sum 2) (/ sum 2.0))))
+6            (else (polygon-area-iter
+7                     points
+8                     (+ n 1)
+9                     (+ sum (-
+10                                (* (car (list-ref points n)) (cdr (list-ref points (remainder (+ n 1) (length points)))))
+11                                (* (car (list-ref points (remainder (+ n 1) (length points)))) (cdr (list-ref points n)))))))))
+12
+13 (define (polygon-area points) (polygon-area-iter points 0 0))
+14
+15 (define (read-points n)
+16      (cond ((= n 0) '())
+17             (else (cons (cons (read) (read)) (read-points (- n 1))))))
+18
+19 (displayln (polygon-area (read-points (read))))

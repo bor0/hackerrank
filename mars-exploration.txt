@@ -1,0 +1,40 @@
+1▾#include <map>
+2 #include <set>
+3 #include <list>
+4 #include <cmath>
+5 #include <ctime>
+6 #include <deque>
+7 #include <queue>
+8 #include <stack>
+9 #include <string>
+10 #include <bitset>
+11 #include <cstdio>
+12 #include <limits>
+13 #include <vector>
+14 #include <climits>
+15 #include <cstring>
+16 #include <cstdlib>
+17 #include <fstream>
+18 #include <numeric>
+19 #include <sstream>
+20 #include <iostream>
+21 #include <algorithm>
+22 #include <unordered_map>
+23
+24 using namespace std;
+25
+26
+27▾int main(){
+28        string S;
+29        string check = "SOS";
+30        cin >> S;
+31        int errors = 0;
+32▾       for (int i = 0; i < S.size(); i++) {
+33▾             if (S[i] != check[i % 3]) {
+34                   errors++;
+35         }
+36     }
+37        cout << errors << "\n";
+38        return 0;
+39 }
+40

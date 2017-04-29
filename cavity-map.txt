@@ -1,0 +1,31 @@
+1 #include <bits/stdc++.h>
+2
+3 using namespace std;
+4
+5▾vector<string> convert_cavity_map(vector<string> grid) {
+6       vector<string> new_grid = grid;
+7▾      for (size_t i = 1; i < grid.size() - 1; i++) {
+8▾           for (size_t j = 1; j < grid.size() - 1; j++) {
+9▾                if (grid[i][j-1] < grid[i][j] && grid[i][j+1] < grid[i][j] && grid[i-1][j] < grid[i][j] && grid[i+1][j] <
+grid[i][j]) {
+10                       new_grid[i][j] = 'X';
+11             }
+12         }
+13     }
+14        return new_grid;
+15 }
+16
+17▾int main(){
+18        int n;
+19        cin >> n;
+20        vector<string> grid(n);
+21▾       for(int grid_i = 0; grid_i < n; grid_i++){
+22            cin >> grid[grid_i];
+23     }
+24        grid = convert_cavity_map(grid);
+25▾       for (int grid_i = 0; grid_i < n; grid_i++) {
+26             cout << grid[grid_i] << "\n";
+27     }
+28        return 0;
+29 }
+30

@@ -1,0 +1,31 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10        int n;
+11        string s1, s2;
+12        cin >> n;
+13
+14▾       while (n) {
+15             bool found = false;
+16             cin >> s1 >> s2;
+17▾            for (int i = 0; i < s1.size(); i++) {
+18                       auto index = s2.find(s1[i]);
+19▾                      if (index != std::string::npos) {
+20                            found = true;
+21                            break;
+22                 }
+23         }
+24
+25             cout << (found ? "YES" : "NO") << "\n";
+26             n--;
+27     }
+28        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+29        return 0;
+30 }
+31

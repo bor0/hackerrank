@@ -1,0 +1,24 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main(){
+10        int n, i, j;
+11        cin >> n;
+12▾       for (i = 0; i < n; i++) {
+13▾            for (j = 1; j < n - i; j++) {
+14                  cout << ' ';
+15         }
+16▾            for (; j <= n; j++) {
+17                  cout << '#';
+18         }
+19
+20             cout << endl;
+21     }
+22        return 0;
+23 }
+24

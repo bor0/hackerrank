@@ -1,0 +1,14 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3 (define (print-list list)
+4     (if (= (length list) 1) (displayln (car list)) (begin (displayln (car list)) (print-list (cdr list)))))
+5
+6 ; we don't use this because we read and print them in different order
+7 (define (reverse-iter list acc)
+8     (if (eq? list '()) acc (reverse-iter (cdr list) (cons (car list) acc))))
+9
+10 (define (main list)
+11      (let ((x (read)))
+12        (if (eof-object? x) (print-list list) (main (cons x list)))))
+13
+14 (main '())

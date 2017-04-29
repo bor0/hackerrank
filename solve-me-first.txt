@@ -1,0 +1,39 @@
+1 process.stdin.resume();
+2 process.stdin.setEncoding('ascii');
+3
+4 var input_stdin = "";
+5 var input_stdin_array = "";
+6 var input_currentline = 0;
+7
+8▾process.stdin.on('data', function (data) {
+9       input_stdin += data;
+10 });
+11
+12▾process.stdin.on('end', function () {
+13        input_stdin_array = input_stdin.split("\n");
+14        main();    
+15 });
+16
+17▾function readLine() {
+18        return input_stdin_array[input_currentline++];
+19 }
+20
+21 /////////////// ignore above this line ////////////////////
+22
+23▾function solveMeFirst(a, b) {
+24      // Hint: Type return a+b below   
+25      return a + b;
+26 }
+27
+28▾function main() {
+29        // write your code here.
+30        // call `readLine()` to read a line.
+31        // use console.log() to write to stdout
+32
+33        var a = parseInt(readLine());
+34        var b = parseInt(readLine());;
+35
+36        var res = solveMeFirst(a, b);
+37        console.log(res);
+38 }
+39

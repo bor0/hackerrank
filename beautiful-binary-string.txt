@@ -1,0 +1,27 @@
+1 #include <bits/stdc++.h>
+2 using namespace std;
+3
+4▾int minSteps(int n, string B){
+5        int numsteps = 0;
+6        std::string::size_type i;
+7
+8▾       while ((i = B.find("010")) != std::string::npos) {
+9             //cout << B << " -> ";
+10             B[i+2] = '1';
+11             //cout << B << endl;
+12             numsteps++;
+13     }
+14        return numsteps;
+15        // Complete this function
+16 }
+17
+18▾int main() {
+19        int n;
+20        cin >> n;
+21        string B;
+22        cin >> B;
+23        int result = minSteps(n, B);
+24        cout << result << endl;
+25        return 0;
+26 }
+27

@@ -1,0 +1,47 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 #include <string>
+7 using namespace std;
+8
+9
+10▾int main() {
+11        char chars[26] = { 0 };
+12        string s;
+13        cin>>s;
+14        bool flag = true;
+15
+16▾       for (int i = 0; i < s.size(); i++) {
+17             chars[s[i] - 'a']++;
+18     }
+19
+20▾       if (s.size() % 2 == 0) {
+21▾            for (int i = 0; i < 26; i++) {
+22▾                 if (chars[i]%2 != 0) {
+23                       flag = false;
+24                       break;
+25             }
+26         }
+27▾    } else {
+28             int count = 0;
+29▾            for (int i = 0; i < 26; i++) {
+30▾                 if (chars[i] % 2 == 1) {
+31                       count++;
+32             }
+33▾                 if (count > 1) {
+34                       flag = false;
+35                       break;
+36             }
+37         }
+38     }
+39
+40        // Assign Flag a value of 0 or 1 depending on whether or not you find what you are looking for, in the given string 
+41        if(flag==false)
+42             cout<<"NO";
+43        else
+44             cout<<"YES";
+45        return 0;
+46 }
+47

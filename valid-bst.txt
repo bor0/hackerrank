@@ -1,0 +1,40 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3 (define (any-list f l)
+4     (cond ((eq? l '()) #f)
+5            ((f (car l)) #t)
+6            (else (any-list f (cdr l)))))
+7
+8 (define (take-while f l)
+9     (cond ((eq? l '()) '())
+10             ((f (car l)) (cons (car l) (take-while f (cdr l))))
+11             (else (take-while f (cdr l)))))
+12
+13 (define (drop-while f l)
+14      (cond ((eq? l '()) '())
+15             ((f (car l)) (drop-while f (cdr l)))
+16             (else l)))
+17
+18 (define (bst-from-preorder? l)
+19      (cond ((eq? l '()) #t)
+20             (else
+21              (letrec ((list-left (take-while (lambda (x) (< x (car l))) (cdr l)))
+22                         (list-right (drop-while (lambda (x) (< x (car l))) (cdr l))))
+23                 (cond
+24                   ((any-list (lambda (x) (> x (car l))) list-left) #f)
+25                   ((any-list (lambda (x) (< x (car l))) list-right) #f)
+26                   (else (and (bst-from-preorder? list-left)
+27                                 (bst-from-preorder? list-right))))))))
+28
+29 (define (eval-test n l)
+30      (if (= n 0) l
+31           (eval-test (- n 1) (append l (list (read))))))
+32
+33 (define (go tests)
+34      (if (= tests 0) #f
+35           (begin
+36             (displayln (if (bst-from-preorder? (eval-test (read) '())) "YES" "NO"))
+37             (go (- tests 1)))))
+38
+39 (define tests (read))
+40 (define repl-test (go tests))

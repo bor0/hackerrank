@@ -1,0 +1,34 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8▾int calc_grade(int grade) {
+9       if (grade < 38) return grade;
+10
+11        int next_grade = floor(1 + grade/5) * 5;
+12        int distance = next_grade - grade;
+13
+14        if (distance < 3) return next_grade;
+15        return grade;
+16 }
+17
+18▾int main() {
+19        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+20        int n;
+21
+22        cin >> n;
+23
+24▾       while (n) {
+25             int tmp;
+26             cin >> tmp;
+27             cout << calc_grade(tmp) << "\n";
+28             n--;
+29        }
+30
+31        return 0;
+32 }
+33
+34

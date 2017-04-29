@@ -1,0 +1,22 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10         int n, V, i, tmp;
+11         cin >> V >> n;
+12▾        for (i = 0; i < n; i++) {
+13               cin >> tmp;
+14▾              if (tmp == V) {
+15                    cout << i << "\n";
+16                    break;
+17         }
+18     }
+19         /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+20         return 0;
+21 }
+22

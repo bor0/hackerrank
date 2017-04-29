@@ -1,0 +1,50 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8▾bool calc(vector<int> &numbers, int index, int expreval, string expr) {
+9       expreval %= 101;
+10        bool ret;
+11
+12▾       if (index == numbers.size()) {
+13▾            if (expreval == 0) {
+14                  cout << expr;
+15                  return true;
+16         }
+17             return false;
+18     }
+19
+20        string number = to_string(numbers[index]);
+21▾       if (calc(numbers, index + 1, expreval * numbers[index], expr + "*" + number)) {
+22             return true;
+23     }
+24
+25▾       if (calc(numbers, index + 1, expreval + numbers[index], expr + "+" + number)) {
+26             return true;
+27     }
+28
+29▾       if (calc(numbers, index + 1, expreval - numbers[index], expr + "-" + number)) {
+30             return true;
+31     }
+32
+33        return false;
+34
+35 }
+36
+37▾int main() {
+38        int total, tmp;
+39        vector<int> numbers;
+40        cin >> total;
+41▾       while (total) {
+42             cin >> tmp;
+43             numbers.push_back(tmp);
+44             total--;
+45     }
+46        calc(numbers, 1, numbers[0], to_string(numbers[0]));
+47        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+48        return 0;
+49 }
+50

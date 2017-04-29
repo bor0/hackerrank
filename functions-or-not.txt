@@ -1,0 +1,19 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (is-function domain)
+5     (equal? (remove-duplicates domain) domain))
+6
+7 (define (read-points n)
+8     (cond ((= n 0) '())
+9            (else (begin
+10                      (cons (cons (read) (read)) (read-points (- n 1)))))))
+11
+12 (define (read-functions n)
+13      (cond ((= n 1) (if (is-function (map car (read-points (read)))) "YES" "NO"))
+14             (else
+15              (begin
+16                 (displayln (if (is-function (map car (read-points (read)))) "YES" "NO"))
+17                 (read-functions (- n 1))))))
+18
+19 (displayln (read-functions (read)))

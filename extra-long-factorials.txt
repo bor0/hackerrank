@@ -1,0 +1,12 @@
+1 #!/bin/python
+2
+3 import sys
+4
+5 product = 1
+6 n = int(raw_input().strip())
+7
+8▾while n > 0:
+9         product = product * n
+10         n = n - 1
+11
+12 print(product)

@@ -1,0 +1,49 @@
+19▾#include <map>
+20 #include <set>
+21 #include <list>
+22 #include <cmath>
+23 #include <ctime>
+24 #include <deque>
+25 #include <queue>
+26 #include <stack>
+27 #include <bitset>
+28 #include <cstdio>
+29 #include <vector>
+30 #include <cstdlib>
+31 #include <numeric>
+32 #include <sstream>
+33 #include <iostream>
+34 #include <algorithm>
+35 using namespace std;
+36▾void partition(vector <int> ar) {
+37        int pivot = ar[0];
+38        vector <int> left, right;
+39
+40▾       for (int i = 0; i < ar.size(); i++) {
+41▾            if (ar[i] < pivot) {
+42                  left.push_back(ar[i]);
+43▾        } else if (ar[i] > pivot) {
+44                  right.push_back(ar[i]);
+45         }
+46     }
+47        for (auto i : left) cout << i << " ";
+48        cout << pivot;
+49        for (auto i : right) cout << " " << i;
+50       // Enter code for partitioning and printing here. 
+51 }
+52▾int main(void) {
+53       vector <int>     _ar;
+54       int _ar_size;
+55       cin >> _ar_size;
+56
+57▾        for(int _ar_i=0; _ar_i<_ar_size; _ar_i++) {
+58             int _ar_tmp;
+59             cin >> _ar_tmp;
+60             _ar.push_back(_ar_tmp); 
+61     }
+62
+63       partition(_ar);
+64
+65       return 0;
+66 }
+67

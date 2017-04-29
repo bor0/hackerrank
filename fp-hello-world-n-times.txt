@@ -1,0 +1,9 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (iter-n n)
+5     (if (= n 1) (displayln "Hello World") ((displayln "Hello World") (iter-n (- n 1)))))
+6
+7 (define n (read))
+8
+9 (if (= 0 n) #f (iter-n n))

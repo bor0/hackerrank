@@ -1,0 +1,32 @@
+1 #include <bits/stdc++.h>
+2
+3 using namespace std;
+4
+5▾int find_pairs(vector<int> &a, int k) {
+6       int cnt = 0;
+7
+8▾      for (int i = 0; i < a.size(); i++) {
+9▾           for (int j = i + 1; j < a.size(); j++) {
+10▾                 if ((a[i] + a[j]) % k == 0) {
+11                       //cout << "(" << i << "," << j << ")" << endl;
+12                       cnt++;
+13             }
+14         }
+15     }
+16
+17        return cnt;
+18 }
+19
+20▾int main() {
+21        int n;
+22        int k;
+23        cin >> n >> k;
+24        vector<int> a(n);
+25▾       for(int a_i = 0; a_i < n; a_i++){
+26            cin >> a[a_i];
+27     }
+28        cout << find_pairs(a, k);
+29        // write your code here
+30        return 0;
+31 }
+32

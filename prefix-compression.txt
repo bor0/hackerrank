@@ -1,0 +1,20 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define x (read-line))
+5 (define y (read-line))
+6
+7 (define (getprefix-iter x y string)
+8      (cond ((or (eq? x '()) (eq? y '()) (not (eq? (car x) (car y)))) (reverse string))
+9               (else (getprefix-iter (cdr x) (cdr y) (cons (car x) string)))))
+10
+11 (define common-prefix (list->string (getprefix-iter (string->list x) (string->list y) '())))
+12 (define common-prefix-length (string-length common-prefix))
+13
+14 (displayln (string-append (number->string common-prefix-length) " " common-prefix " "))
+15
+16 (define substrx (substring x common-prefix-length))
+17 (define substry (substring y common-prefix-length))
+18
+19 (displayln (string-append (number->string (- (string-length x) common-prefix-length)) " " substrx))
+20 (displayln (string-append (number->string (- (string-length y) common-prefix-length)) " " substry))

@@ -1,0 +1,47 @@
+20▾#include <map>
+21 #include <set>
+22 #include <list>
+23 #include <cmath>
+24 #include <ctime>
+25 #include <deque>
+26 #include <queue>
+27 #include <stack>
+28 #include <bitset>
+29 #include <cstdio>
+30 #include <limits>
+31 #include <vector>
+32 #include <cstdlib>
+33 #include <numeric>
+34 #include <sstream>
+35 #include <iostream>
+36 #include <algorithm>
+37 using namespace std;
+38▾/*
+39    * Complete the function below.
+40    */
+41▾int maxXor(int l, int r) {
+42        int max = 0;
+43
+44▾       for (int i = l; i <= r; i++) {
+45▾            for (int j = i; j <= r; j++) {
+46                  if ((i ^ j) > max) max = i ^ j;
+47         }
+48     }
+49
+50        return max;
+51 }
+52
+53▾int main() {
+54        int res;
+55        int _l;
+56        cin >> _l;
+57
+58        int _r;
+59        cin >> _r;
+60
+61        res = maxXor(_l, _r);
+62        cout << res;
+63
+64        return 0;
+65 }
+66

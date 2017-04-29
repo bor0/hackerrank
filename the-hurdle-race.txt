@@ -1,0 +1,41 @@
+1▾#include <map>
+2 #include <set>
+3 #include <list>
+4 #include <cmath>
+5 #include <ctime>
+6 #include <deque>
+7 #include <queue>
+8 #include <stack>
+9 #include <string>
+10 #include <bitset>
+11 #include <cstdio>
+12 #include <limits>
+13 #include <vector>
+14 #include <climits>
+15 #include <cstring>
+16 #include <cstdlib>
+17 #include <fstream>
+18 #include <numeric>
+19 #include <sstream>
+20 #include <iostream>
+21 #include <algorithm>
+22 #include <unordered_map>
+23
+24 using namespace std;
+25
+26
+27▾int main(){
+28        int n;
+29        int k;
+30        cin >> n >> k;
+31        vector<int> height(n);
+32        int max = 0;
+33▾       for(int height_i = 0; height_i < n; height_i++){
+34            cin >> height[height_i];
+35             if (height[height_i] > max) max = height[height_i];
+36     }
+37        cout << ((max - k) < 0 ? 0 : max - k);
+38        // your code goes here
+39        return 0;
+40 }
+41

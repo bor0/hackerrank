@@ -1,0 +1,21 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3 (define (my-filter f list)
+4     (if (eq? list '()) '() (if
+5                                  (f (car list))
+6                                  (cons (car list) (my-filter f (cdr list)))
+7                                  (my-filter f (cdr list))
+8                                  )))
+9
+10 (define (f n arr) (my-filter (lambda (x) (< x n)) arr))
+11
+12 (define n (read))
+13
+14 (define (print-list list)
+15      (if (= (length list) 1) (displayln (car list)) (begin (displayln (car list)) (print-list (cdr list)))))
+16
+17 (define (main list)
+18      (let ((x (read)))
+19        (if (eof-object? x) (print-list (reverse (f n list))) (main (cons x list)))))
+20
+21 (main '())

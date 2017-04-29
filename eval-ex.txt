@@ -1,0 +1,20 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (factorial n) (if (= n 0) 1 (* n (factorial (- n 1)))))
+5
+6 (define (calculate-e-term term n)
+7     (cond ((= term 0) 1)
+8            ((= term 1) n)
+9            (else (/ (expt n term) (factorial term)))))
+10
+11 (define (calculate-e n) (foldr + 0 (map (lambda (x) (calculate-e-term x n)) (range 10))))
+12
+13 (define (read-numbers n)
+14      (cond ((= n 1) (displayln (~r (calculate-e (read)) #:precision 4)))
+15             (else
+16              (begin
+17                 (displayln (~r (calculate-e (read)) #:precision 4))
+18                 (read-numbers (- n 1))))))
+19
+20 (read-numbers (read))

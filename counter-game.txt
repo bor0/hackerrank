@@ -1,0 +1,90 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <bitset>
+6 #include <algorithm>
+7 using namespace std;
+8
+9 template<size_t N>
+10▾bitset<N> subtract(bitset<N> a, bitset<N> b) {
+11    bitset<N> result;
+12    bool borrow = false;
+13
+14▾   for (int i = 0; i < N; i++) {
+15▾      if (borrow && a[i]) {
+16          borrow = false;
+17          a[i] = 0;
+18       }
+19
+20▾      if (b[i] > a[i]) {
+21          borrow = true;
+22          result[i] = 1;
+23▾      } else {
+24          result[i] = a[i] - b[i];
+25       }
+26    }
+27
+28    return result;
+29 }
+30
+31 template<size_t N>
+32▾bitset<N> shift_right(bitset<N> a) {
+33    bitset<N> result;
+34
+35▾   for (int i = 0; i < N-1; i++) {
+36       result[i] = a[i+1];
+37    }
+38
+39    return result;
+40 }
+41
+42 template<size_t N>
+43▾bool is_power_of_two(bitset <N> a) {
+44    int ones = 0;
+45
+46▾   for (int i = 0; i < N; i++) {
+47▾      if (a[i]) {
+48          ones++;
+49       }
+50
+51▾      if (ones > 1) {
+52          return false;
+53       }
+54    }
+55
+56    return true;
+57 }
+58
+59 template<size_t N>
+60▾bitset<N> largest_power_of_two(bitset <N> a) {
+61    bitset<N> result;
+62    int ones = 0;
+63
+64▾   for (int i = N-1; i >= 0; i--) {
+65▾      if (a[i]) {
+66          result[i] = 1;
+67          break;
+68       }
+69    }
+70
+71    return result;
+72 }
+73
+74 template<size_t N>
+75▾bool is_one(bitset <N> a) {
+76▾   for (int i = 1; i < N; i++) {
+77▾      if (a[i]) {
+78          return false;
+79       }
+80    }
+81
+82    return a[0] ? true : false;
+83 }
+84
+85▾string get_winner(uint64_t i) {
+86    int player = 0;
+87
+88    bitset<65> bs(i);
+89
+90▾   while ( ! is_one(bs) ) {

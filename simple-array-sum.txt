@@ -1,0 +1,30 @@
+1 process.stdin.resume();
+2 process.stdin.setEncoding('ascii');
+3
+4 var input_stdin = "";
+5 var input_stdin_array = "";
+6 var input_currentline = 0;
+7
+8▾process.stdin.on('data', function (data) {
+9        input_stdin += data;
+10 });
+11
+12▾process.stdin.on('end', function () {
+13         input_stdin_array = input_stdin.split("\n");
+14         main();    
+15 });
+16
+17▾function readLine() {
+18         return input_stdin_array[input_currentline++];
+19 }
+20
+21 /////////////// ignore above this line ////////////////////
+22
+23▾function main() {
+24         var n = parseInt(readLine());
+25         arr = readLine().split(' ');
+26         arr = arr.map(Number);
+27 var s=0;for (var i in arr) s+= arr[i];
+28         console.log(s);
+29 }
+30

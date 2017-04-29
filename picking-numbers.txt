@@ -1,0 +1,54 @@
+1▾#include <map>
+2 #include <set>
+3 #include <list>
+4 #include <cmath>
+5 #include <ctime>
+6 #include <deque>
+7 #include <queue>
+8 #include <stack>
+9 #include <string>
+10 #include <bitset>
+11 #include <cstdio>
+12 #include <limits>
+13 #include <vector>
+14 #include <climits>
+15 #include <cstring>
+16 #include <cstdlib>
+17 #include <fstream>
+18 #include <numeric>
+19 #include <sstream>
+20 #include <iostream>
+21 #include <algorithm>
+22 #include <unordered_map>
+23
+24 using namespace std;
+25
+26
+27▾int main(){
+28        int n;
+29        cin >> n;
+30        vector<int> a(n);
+31        vector<int> maxarray;
+32▾       for(int a_i = 0;a_i < n;a_i++){
+33            cin >> a[a_i];
+34     }
+35▾       for (int i = 0; i < n; i++) {
+36             vector <int> tmparray;
+37             tmparray.push_back(a[i]);
+38▾            for (int j = 0; j < n; j++) {
+39                  if (i == j) continue;
+40▾                 if (abs(a[i] - a[j]) <= 1) {
+41▾                      for (int k = 0; k < tmparray.size(); k++) {
+42                            if (abs(tmparray[k] - a[j]) > 1) goto next;
+43                 }
+44                       tmparray.push_back(a[j]);
+45             }
+46                  next:
+47                  1==1;
+48         }
+49             if (tmparray.size() > maxarray.size()) maxarray = tmparray;
+50     }
+51        cout << maxarray.size() << "\n";
+52        return 0;
+53 }
+54

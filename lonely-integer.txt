@@ -1,0 +1,56 @@
+19▾#include <map>
+20 #include <set>
+21 #include <list>
+22 #include <cmath>
+23 #include <ctime>
+24 #include <deque>
+25 #include <queue>
+26 #include <stack>
+27 #include <bitset>
+28 #include <cstdio>
+29 #include <limits>
+30 #include <vector>
+31 #include <cstdlib>
+32 #include <numeric>
+33 #include <sstream>
+34 #include <iostream>
+35 #include <algorithm>
+36 using namespace std;
+37▾int lonelyinteger(vector < int > a) {
+38▾       /*
+39        int integers[1000] = {0};
+40        for (int i = 0; i < a.size(); i++) {
+41             integers[a[i]]++;
+42        }
+43        for (int i = 0; i < 1000; i++) {
+44             if (integers[i] == 1) {
+45                  return i;
+46             }
+47        }*/
+48        int sum = 0;
+49
+50        // This is using the fact that a㱾 a㱾 b㱾 c㱾 c = b, derived from a㱾 0 = a and a㱾 a = 0.
+51        // This can be verified by using truth tables.
+52        for (int i = 0; i < a.size(); i++) sum ^= a[i];
+53
+54        return sum;
+55 }
+56
+57▾int main() {
+58        int res;
+59
+60        int _a_size;
+61        cin >> _a_size;
+62        cin.ignore (std::numeric_limits<std::streamsize>::max(), '\n'); 
+63        vector<int> _a;
+64        int _a_item;
+65▾       for(int _a_i=0; _a_i<_a_size; _a_i++) {
+66             cin >> _a_item;
+67             _a.push_back(_a_item);
+68     }
+69
+70        res = lonelyinteger(_a);
+71        cout << res;
+72
+73        return 0;
+74 }

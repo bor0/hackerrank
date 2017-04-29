@@ -1,0 +1,50 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8▾unsigned int super_digit(unsigned int x) {
+9▾      if (x < 10) {
+10             return x;
+11     }
+12
+13        int sum = 0;
+14
+15▾       while (x) {
+16             sum += x % 10;
+17             x /= 10;
+18     }
+19
+20        return super_digit(sum);
+21 }
+22
+23▾unsigned int super_digit(std::string x) {
+24▾       if (x.length() == 1) {
+25        return x[0] - '0';
+26     }
+27
+28        unsigned int sum = 0;
+29        unsigned int i;
+30
+31▾       for (i = 0; i < x.length(); i++) {
+32             sum += x[i] - '0';
+33             if (sum > 1000000000) sum = super_digit(sum);
+34     }
+35
+36        sum = super_digit(sum);
+37
+38        return super_digit(std::to_string(sum) + x.substr(i));
+39 }
+40
+41▾int main() {
+42        string n;
+43        int k;
+44        cin >> n;
+45        cin >> k;
+46
+47        cout << super_digit(k * super_digit(n)) << endl;
+48
+49        return 0;
+50 }

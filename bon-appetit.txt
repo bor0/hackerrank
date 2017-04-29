@@ -1,0 +1,36 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10        int count, kth, bill, sumwithoutk = 0, totalsum = 0;
+11
+12        cin >> count >> kth;
+13
+14▾       for (int i = 0; i < count; i++) {
+15             int tmp;
+16             cin >> tmp;
+17▾            if (i != kth) {
+18                  sumwithoutk += tmp;
+19         }
+20             totalsum += tmp;
+21     }
+22
+23        cin >> bill;
+24
+25        totalsum /= 2;
+26        sumwithoutk /= 2;
+27
+28▾       if (bill == sumwithoutk) {
+29             cout << "Bon Appetit" << "\n";
+30▾    } else {
+31             cout << abs(bill - sumwithoutk) << "\n";
+32     }
+33        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+34        return 0;
+35 }
+36

@@ -1,0 +1,34 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3 (define (read-list n) (if (= n 0) '() (cons (read) (read-list (- n 1)))))
+4 (define (make-query action l r) (cons action (cons l (cons r '()))))
+5 (define (query-action query) (car query))
+6 (define (query-first query) (car (cdr query)))
+7 (define (query-second query) (car (cdr (cdr query))))
+8 (define (list-range lst start end) (take (drop lst start) (+ 1 (- end start))))
+9 (define modnum (+ 7 (expt 10 9)))
+10
+11 (define (process-query a-list q)
+12      (cond ((eq? (query-action q) 'Q) (remainder
+13                                                (apply lcm (list-range a-list (query-first q) (query-second q)))
+14                                                modnum))
+15             ((eq? (query-action q) 'U) (let ((index (query-first q)))
+16                                                 (list-set
+17                                                  a-list
+18                                                  index
+19                                                  (* (list-ref a-list index) (query-second q)))))))
+20
+21 (define (repl-queries a-list k)
+22      (if (eq? k 0) '()
+23           (letrec ((q (make-query (read) (read) (read)))
+24                      (processed (process-query a-list q)))
+25             (if (list? processed)
+26                  (repl-queries processed (- k 1))
+27                  (begin
+28                     (displayln processed)
+29                     (repl-queries a-list (- k 1)))))))
+30
+31 (define n (read))
+32 (define a-list (read-list n))
+33 (define k (read))
+34 (define go (repl-queries a-list k))

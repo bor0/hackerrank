@@ -1,0 +1,33 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+11        int chars[26] = { 0 };
+12        string st;
+13
+14        getline(cin, st);
+15
+16▾       for (int i = 0; i < st.size(); i++) {
+17▾            if (isalpha(st[i])) {
+18                  chars[tolower(st[i]) - 'a']++;
+19             }
+20        }
+21
+22▾       for (int i = 0; i < sizeof(chars) / sizeof(int); i++) {
+23▾            if (chars[i] == 0) {
+24                  cout << "not pangram" << "\n";
+25                  return 0;
+26             }
+27        }
+28
+29        cout << "pangram" << "\n";
+30
+31        return 0;
+32 }
+33

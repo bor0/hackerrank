@@ -1,0 +1,12 @@
+1 x = raw_input().split(' ')
+2 x = map(lambda x: int(x), x)
+3
+4 t0, t1, n = x[0], x[1], x[2]
+5
+6▾while n != 2:
+7     next = t0 + t1*t1
+8     t0, t1 = t1, next
+9     n = n - 1
+10
+11 print(t1)
+12

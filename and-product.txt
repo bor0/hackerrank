@@ -1,0 +1,40 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 #include <climits>
+7 using namespace std;
+8
+9▾unsigned long int calculate(unsigned long int a, unsigned long b) {
+10        unsigned long int cnt = 0, i = INT_MAX + 1L;
+11
+12        // 0011 (3) - 0100 (4)   ->  0xxx (?)
+13        // 1000 (8) - 1011 (11)  ->  10xx (?)
+14        // for the bits we go from left to right while they match
+15        // and then print them, padded with zeroes
+16▾       while ( (a & i) == (b & i) ) {
+17             i >>= 1;
+18             cnt++;
+19     }
+20
+21        cnt = 32 - cnt;
+22
+23        return (a >> cnt) << cnt;
+24 }
+25
+26▾int main() {
+27        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+28        unsigned long int n, a, b;
+29        cin >> n;
+30
+31▾       while (n) {
+32             cin >> a >> b;
+33
+34             cout << calculate(a, b) << "\n";
+35             n--;
+36     }
+37
+38        return 0;
+39 }
+40

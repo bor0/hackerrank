@@ -1,0 +1,27 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main(){
+10        int n;
+11        cin >> n;
+12        int positive = 0, negative = 0, zeroes = 0, total = 0, number;
+13▾       for (int i = 0;i < n;i++) {
+14            cin >> number;
+15            if (number > 0) positive++;
+16             else if (number < 0) negative++;
+17                  else zeroes++;
+18                  total++;
+19     }
+20
+21        std::printf("%.6f\n", (float) positive / total);
+22        std::printf("%.6f\n", (float) negative / total);
+23        std::printf("%.6f\n", (float) zeroes / total);
+24
+25        return 0;
+26 }
+27

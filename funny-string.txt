@@ -1,0 +1,33 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8▾bool funny(string x) {
+9       string rev(x);
+10        reverse(rev.begin(), rev.end());
+11
+12▾       for (int i = 1; i < x.size() - 1; i++) {
+13▾            if ((abs(x[i] - x[i-1])) != abs(rev[i] - rev[i-1])) {
+14                  return false;
+15         }
+16     }
+17        return true;
+18 }
+19
+20▾int main() {
+21        int n;
+22        cin >> n;
+23        string tmp;
+24
+25▾       while (n) {
+26             cin >> tmp;
+27             cout << (funny(tmp) ? "Funny" : "Not Funny") << "\n";
+28             n--;
+29     }
+30        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+31        return 0;
+32 }
+33

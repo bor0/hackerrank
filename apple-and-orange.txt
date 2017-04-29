@@ -1,0 +1,56 @@
+1▾#include <map>
+2 #include <set>
+3 #include <list>
+4 #include <cmath>
+5 #include <ctime>
+6 #include <deque>
+7 #include <queue>
+8 #include <stack>
+9 #include <string>
+10 #include <bitset>
+11 #include <cstdio>
+12 #include <limits>
+13 #include <vector>
+14 #include <climits>
+15 #include <cstring>
+16 #include <cstdlib>
+17 #include <fstream>
+18 #include <numeric>
+19 #include <sstream>
+20 #include <iostream>
+21 #include <algorithm>
+22 #include <unordered_map>
+23
+24 using namespace std;
+25
+26▾bool is_between(int l, int u, int n) {
+27        return l <= n && n <= u;
+28 }
+29
+30▾int main(){
+31        int s;
+32        int t;
+33        cin >> s >> t;
+34        int a;
+35        int b;
+36        cin >> a >> b;
+37        int m;
+38        int n;
+39        cin >> m >> n;
+40        int countA = 0, countO = 0;
+41        vector<int> apple(m);
+42▾       for(int apple_i = 0;apple_i < m;apple_i++){
+43            cin >> apple[apple_i];
+44            int pos = a + apple[apple_i];
+45            if (is_between(s, t, pos)) countA++;
+46     }
+47        vector<int> orange(n);
+48▾       for(int orange_i = 0;orange_i < n;orange_i++){
+49            cin >> orange[orange_i];
+50            int pos = b + orange[orange_i];
+51            if (is_between(s, t, pos)) countO++;
+52     }
+53        cout << countA << "\n" << countO << "\n";
+54        return 0;
+55 }
+56

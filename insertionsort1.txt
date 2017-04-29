@@ -1,0 +1,45 @@
+18▾#include <map>
+19 #include <set>
+20 #include <list>
+21 #include <cmath>
+22 #include <ctime>
+23 #include <deque>
+24 #include <queue>
+25 #include <stack>
+26 #include <bitset>
+27 #include <cstdio>
+28 #include <vector>
+29 #include <cstdlib>
+30 #include <numeric>
+31 #include <sstream>
+32 #include <iostream>
+33 #include <algorithm>
+34 using namespace std;
+35▾void insertionSort(vector <int> ar) {
+36        int index = ar.size() - 1;
+37        int tmp = ar[index];
+38▾       while (index - 1 >= 0 && ar[index - 1] > tmp) {
+39             ar[index] = ar[index - 1];
+40
+41             for (auto i : ar) cout << i << " "; cout << "\n";
+42
+43             index--;
+44     }
+45        ar[index] = tmp;
+46        for (auto i : ar) cout << i << " "; cout << "\n";
+47 }
+48
+49▾int main(void) {
+50        vector <int>     _ar;
+51        int _ar_size;
+52        cin >> _ar_size;
+53▾       for(int _ar_i=0; _ar_i<_ar_size; _ar_i++) {
+54             int _ar_tmp;
+55             cin >> _ar_tmp;
+56             _ar.push_back(_ar_tmp); 
+57     }
+58
+59        insertionSort(_ar);
+60        return 0;
+61 }
+62

@@ -1,0 +1,31 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8▾int main(){
+9       int n;
+10        cin >> n;
+11        string s;
+12        cin >> s;
+13        int k;
+14        cin >> k;
+15        k %= 26;
+16
+17▾       for (int i = 0; i < n; i++) {
+18▾            if (!isalpha(s[i])) {
+19                  continue;
+20         }
+21
+22▾            if ((isupper(s[i]) && s[i] + k > 'Z') || (islower(s[i]) && s[i] + k > 'z')) {
+23                  s[i] -= 26;
+24         }
+25
+26             s[i] += k;
+27     }
+28        cout << s << "\n";
+29        return 0;
+30 }
+31

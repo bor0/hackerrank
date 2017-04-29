@@ -1,0 +1,55 @@
+1▾#include <map>
+2 #include <set>
+3 #include <list>
+4 #include <cmath>
+5 #include <ctime>
+6 #include <deque>
+7 #include <queue>
+8 #include <stack>
+9 #include <string>
+10 #include <bitset>
+11 #include <cstdio>
+12 #include <limits>
+13 #include <vector>
+14 #include <climits>
+15 #include <cstring>
+16 #include <cstdlib>
+17 #include <fstream>
+18 #include <numeric>
+19 #include <sstream>
+20 #include <iostream>
+21 #include <algorithm>
+22 #include <unordered_map>
+23
+24 using namespace std;
+25
+26▾bool list_divides(vector<int> &a, int x, int direction = 0) {
+27▾       for (int j = 0; j < a.size(); j++) {
+28             if (!direction && x % a[j] != 0) return false;
+29             if (direction && a[j] % x != 0) return false;
+30     }
+31        return true;
+32 }
+33
+34▾int main(){
+35        int n;
+36        int m;
+37        cin >> n >> m;
+38        vector<int> a(n);
+39▾       for(int a_i = 0;a_i < n;a_i++){
+40            cin >> a[a_i];
+41     }
+42        vector<int> b(m);
+43▾       for(int b_i = 0;b_i < m;b_i++){
+44            cin >> b[b_i];
+45     }
+46        int cnt = 0;
+47▾       for (int i = 1; i <= 100; i++) {
+48▾            if (list_divides(a, i, 0) && list_divides(b, i, 1) ) {
+49                  cnt++;
+50         }
+51     }
+52        cout << cnt << "\n";
+53        return 0;
+54 }
+55

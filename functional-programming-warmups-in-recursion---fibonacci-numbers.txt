@@ -1,0 +1,22 @@
+1 #lang racket
+2 ; Enter your code here. Read input from STDIN. Print output to STDOUT
+3
+4 (define (fib n)
+5     (fib-iter 1 0 0 1 n))
+6 (define (fib-iter a b p q count)
+7     (cond ((= count 0) b)
+8             ((even? count)
+9              (fib-iter a
+10                            b
+11 ;                   <??> ; compute p’
+12 ;                   <??> ; compute q’
+13                            (+ (* q q) (* p p)) ; compute p'
+14                            (+ (* 2 p q) (* q q)) ; compute q’
+15                            (/ count 2)))
+16                            (else (fib-iter (+ (* b q) (* a q) (* a p))
+17                                                (+ (* b p) (* a q))
+18                                                p
+19                                                q
+20                                                (- count 1)))))
+21
+22 (displayln (fib (- (read) 1)))

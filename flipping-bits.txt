@@ -1,0 +1,22 @@
+1▾#include <cmath>
+2 #include <cstdio>
+3 #include <vector>
+4 #include <iostream>
+5 #include <algorithm>
+6 using namespace std;
+7
+8
+9▾int main() {
+10        uint32_t max = 0xFFFFFFFF, number;
+11        int n;
+12        cin >> n;
+13
+14▾       while (n) {
+15             cin >> number;
+16             cout << (max - number) << "\n";
+17             n--;
+18     }
+19        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+20        return 0;
+21 }
+22

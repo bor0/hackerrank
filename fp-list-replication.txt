@@ -1,0 +1,15 @@
+1 #lang racket
+2 (define (repeat x n) (if (= n 0) '() (cons x (repeat x (- n 1)))))
+3 (define (concat arrs) (foldr append '() arrs))
+4 (define (f n arr) (concat (map (lambda (x) (repeat x n)) arr)))
+5
+6 (define n (read))
+7
+8 (define (print-list list)
+9     (if (= (length list) 1) (displayln (car list)) (begin (displayln (car list)) (print-list (cdr list)))))
+10
+11 (define (main list)
+12      (let ((x (read)))
+13        (if (eof-object? x) (print-list (reverse (f n list))) (main (cons x list)))))
+14
+15 (main '())

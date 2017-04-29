@@ -1,0 +1,35 @@
+1 #include <bits/stdc++.h>
+2
+3 using namespace std;
+4
+5▾bool sort_string(string a, string b) {
+6▾      if (a.length() < b.length()) {
+7           return true;
+8▾    } else if (a.length() > b.length()) {
+9           return false;
+10     }
+11▾       for (int i = 0; i < a.length(); i++) {
+12▾            if (a[i] < b[i]) {
+13                  return true;
+14▾        } else if (a[i] > b[i]) {
+15                  return false;
+16         }
+17     }
+18        return false;
+19 }
+20
+21▾int main(){
+22        int n;
+23        cin >> n;
+24        vector<string> unsorted(n);
+25▾       for(int unsorted_i = 0; unsorted_i < n; unsorted_i++){
+26            cin >> unsorted[unsorted_i];
+27     }
+28        sort(unsorted.begin(), unsorted.end(), sort_string);
+29▾       for(int unsorted_i = 0; unsorted_i < n; unsorted_i++){
+30            cout << unsorted[unsorted_i] << "\n";
+31     }
+32        // your code goes here
+33        return 0;
+34 }
+35
